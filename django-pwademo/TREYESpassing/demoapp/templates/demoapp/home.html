@@ -1,0 +1,14 @@
+{% extends "demoapp/masterpage.html" %}
+
+{% load static %}
+
+{% block content %}
+    <div class="sticky-top m-2 bg-light">
+        <h3 class="m-2">Live Feed</h3>
+        <div class="embed-responsive embed-responsive-16by9">
+            <video id="uploadVideoView" src="{% static 'video/group_walking.mp4' %}" class="embed-responsive-item" autoplay="true" muted="" loop>
+        </div>
+    </div>
+    <h3 class="m-3">Notifications</h3>
+    {% include "demoapp/includes/notif.html" %}
+{% endblock %}
