@@ -24,10 +24,7 @@ def processVideo(request):
   response["Access-Control-Allow-Headers"] = "*"
   return response   
 
-
-# Returned this to stock, modify as you wish based on the photo sent to you
 def get_notif(request):
-  # START HERE
   if request.method == "GET":
     returnedList = Notification.objects.all().order_by("-date")
     parent_dict = {}
