@@ -5,24 +5,22 @@ from .models import Notification
 
 
 def processVideo(request):
-  print("da")
-  # signals.check_request_enabled.connect(True)
   if request.method == "GET":
       detected = videoProcesser.process()
       if detected:
         response = JsonResponse({"detected": "Trespasser detected!"})
       else:
         response = JsonResponse({"detected": "No trespasser detected!"})
-      
+
   else:
     response = JsonResponse({"error": "there was an error"})
     response.status_code = 403
-    
+
   response["Access-Control-Allow-Origin"] = "*"
   response["Access-Control-Allow-Methods"] = "*"
   response["Access-Control-Max-Age"] = "1000"
   response["Access-Control-Allow-Headers"] = "*"
-  return response   
+  return response
 
 def get_notif(request):
   if request.method == "GET":
@@ -35,7 +33,7 @@ def get_notif(request):
       result = {
         'header' : splitter[0],
         'timestamp' : splitter[1],
-        'img' : splitter[2] 
+        'img' : splitter[2]
       }
       listOfNotif.append(result)
     parent_dict["notifications"] = listOfNotif

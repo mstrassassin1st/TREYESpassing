@@ -54,7 +54,7 @@ class HumanDetector:
             ret, frame = capture.read()
             if frame is None:
                 break
-            
+
             frame_counter += 1
 
             fgMask = self.backSub.apply(frame)
@@ -90,15 +90,14 @@ class HumanDetector:
                         if frame_counter % 100 == 0:
                             curr_datetime = datetime.now()
                             filename = curr_datetime.strftime("%d%m%Y_%H%M%S%f")
-                            # base_dir = os.path.dirname(__file__)
-                            # photo_file_name = base_dir + '\\static\\img\\' + str(filename) + '.png'
-                            photo_file_name = 'D:\\Assignments\\ANN\\TREYESpassing - FRONTEND\\TREYESpassing---Frontend\\frontTRS\\public\\img\\'+filename+'.png'
-                            save_dir = 'public\\img\\'+filename+'.png'
+                            base_dir = os.path.dirname(__file__)
+                            photo_file_name = base_dir + '/static/img/' + str(filename) + '.png'
+                            photo_file_name = photo_file_name.replace("\\", "/")
                             print(photo_file_name)
                             print(cv.imwrite(photo_file_name, img_human))
-                            notification = Notification.objects.create(notifheader='Person(s) detected!', date=curr_datetime, image=save_dir)
+                            notification = Notification.objects.create(notifheader='Person(s) detected!', date=curr_datetime, image=photo_file_name)
                             notification.save()
-            
+
 
 
         if return_image == True:
