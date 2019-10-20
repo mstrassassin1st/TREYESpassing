@@ -1,4 +1,4 @@
-# TREYESpassing---Frontend
+# TREYESpassing
 TREYESpassing is an app that alerts it's user when someone entered an area that is 
 owned by the user and access to the area is prohibited for everyone.
 
@@ -14,18 +14,20 @@ PWA(Node.js) requests -> Django -> AI Engine -> Django -> PWA(Node.js) response 
 
 To use this app, you will need:
 
-Python 3.8
-Tensorflow 1.10.0
-Django 2.2.5
-h5py 2.8.0
-OpenCV 3.4.2
-
-npm version 6.9.0
-node v10.16.3
-
-axios js
-jQuery
-Promise js
+<ul>
+  <li>Python 3.6.9</li>
+  <li>Tensorflow 1.10.0</li>
+  <li>Django 2.2.5</li>
+  <li>h5py 2.8.0  </li>
+  <li>OpenCV 3.4.2</li>
+</ul>
+<ul>
+  <li>npm version 6.9.0</li>
+  <li>node v10.16.3</li>
+  <li>axios js</li>
+  <li>jQuery</li>
+  <li>Promise js</li>
+</ul>
 
 please refer to npm installs you can find on how to install js plugins into node.js workspace using npm.
 
