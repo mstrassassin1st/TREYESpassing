@@ -3,19 +3,23 @@ $(document).ready(function(){
     window.setInterval(function(){
         axios({
             method: 'get',
-            url: 'http://localhost:8000/notif/',
-            responseType: 'json',
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            url: 'http://192.168.137.1:8000/notif/'
         })
         .then(response => {
-            var obj = JSON.parse(response);
-            
+            console.log("response gained");
+            if(response.data.status == "ok"){
+                $('#notif-card').remove();
+                var notif = response.data.notifications;
+                for(var i = 0; i < notif.length; i++){
+                    $('#notif-head').append(
+                        "<div class=\"card m-3 p-3\" id=\"notif-card\"><h3>" + notif[i].header + "</h3><h6>"+ notif[i].timestamp +"</h6><div class=\"embed-responsive embed-responsive-16by9\"><img class=\"embed-responsive-item\" src=\"" + notif[i].img + "\"></div></div>"  
+                    );
+                }
+            } 
         })
         .catch(ex => {
-            alert('Failed to process video, please upload another one');
-        })
+            alert('Failed to fetch notification!');
+        });
     }, 10000);
 });
 
@@ -23,7 +27,7 @@ $(document).ready(function(){
 function requester(){
     axios({
         method: 'get',
-        url: 'http://localhost:8000/processVideo/',
+        url: 'http://192.168.137.1:8000/processVideo/',
         responseType: 'json',
         headers: {
             'Content-Type': 'application/json'
@@ -34,7 +38,7 @@ function requester(){
     })
     .catch(ex => {
         alert('Failed to process video, please upload another one');
-    })
+    });
 }
 
 

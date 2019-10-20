@@ -24,11 +24,13 @@ def processVideo(request):
   response["Access-Control-Allow-Headers"] = "*"
   return response   
 
+
+
 def get_notif(request):
-  print("no")
   if request.method == "GET":
     returnedList = Notification.objects.all().order_by("-date")
     parent_dict = {}
+    parent_dict["status"] = "ok"
     listOfNotif = []
     for item in returnedList:
       splitter = str(item).split('#')
@@ -38,6 +40,5 @@ def get_notif(request):
         'img' : splitter[2] 
       }
       listOfNotif.append(result)
-    parent_dict["status"] = "ok"
     parent_dict["notifications"] = listOfNotif
     return JsonResponse(parent_dict)

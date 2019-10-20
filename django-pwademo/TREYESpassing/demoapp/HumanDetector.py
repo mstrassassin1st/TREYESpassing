@@ -90,11 +90,13 @@ class HumanDetector:
                         if frame_counter % 100 == 0:
                             curr_datetime = datetime.now()
                             filename = curr_datetime.strftime("%d%m%Y_%H%M%S%f")
-                            base_dir = os.path.dirname(__file__)
-                            photo_file_name = base_dir + '\\static\\img\\' + str(filename) + '.png'
+                            # base_dir = os.path.dirname(__file__)
+                            # photo_file_name = base_dir + '\\static\\img\\' + str(filename) + '.png'
+                            photo_file_name = 'D:\\Assignments\\ANN\\TREYESpassing - FRONTEND\\TREYESpassing---Frontend\\frontTRS\\public\\img\\'+filename+'.png'
+                            save_dir = 'public\\img\\'+filename+'.png'
                             print(photo_file_name)
                             print(cv.imwrite(photo_file_name, img_human))
-                            notification = Notification.objects.create(notifheader='Person(s) detected!', date=curr_datetime, image=photo_file_name)
+                            notification = Notification.objects.create(notifheader='Person(s) detected!', date=curr_datetime, image=save_dir)
                             notification.save()
             
 

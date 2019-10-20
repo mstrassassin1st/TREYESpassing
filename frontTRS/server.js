@@ -5,7 +5,7 @@ const app = express();
 
 const server = app.listen(8081, () => {
 
-    const host = '0.0.0.0';0
+    const host = '0.0.0.0';
     const port = server.address().port;
 
     console.log('App listening at http://%s:%s', host, port);

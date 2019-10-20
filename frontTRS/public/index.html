@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TREYESpassing</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="TREYESpassing">
+    <link rel="apple-touch-icon" href="img/icons/icon-152x152.png">
+    <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="stylesheet/bootstrap.min.css" type="text/css"/>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script/axios.min.js"></script>
 </head>
 <body class="body" style="background-color:#f6f6f6">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
         <a class="navbar-brand" href="#">TREYESpassing</a>    
     </nav>
     <div class="container">
@@ -19,7 +24,7 @@
                 <video id="uploadVideoView" src="public/video/group_walking.mp4" class="embed-responsive-item" autoplay="true" muted="">
             </div>
         </div>
-        <h3 class="m-3">Notifications</h3>
+        <h3 class="m-3" id="notif-head">Notifications</h3>
         <!-- <div class="card m-3 p-3">
             <h4>{{ post.0 }}</h4>
             <p>{{ post.1 }}</p>
