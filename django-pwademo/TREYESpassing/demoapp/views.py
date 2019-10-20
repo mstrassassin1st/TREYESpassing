@@ -3,7 +3,8 @@ from django.http import HttpResponse, JsonResponse
 from . import videomain as videoProcesser
 from .models import Notification
 
-def api_getto(request):
+
+def processVideo(request):
   print("da")
   # signals.check_request_enabled.connect(True)
   if request.method == "GET":
@@ -26,6 +27,17 @@ def api_getto(request):
 def get_notif(request):
   print("no")
   if request.method == "GET":
-    returnedList = Notification.objects.all().order_by("date")
-    print(returnedList[0])
-    return JsonResponse({"fuckyou":"IT WORKS BITCH!"})
+    returnedList = Notification.objects.all().order_by("-date")
+    parent_dict = {}
+    listOfNotif = []
+    for item in returnedList:
+      splitter = str(item).split('#')
+      result = {
+        'header' : splitter[0],
+        'timestamp' : splitter[1],
+        'img' : splitter[2] 
+      }
+      listOfNotif.append(result)
+    parent_dict["status"] = "ok"
+    parent_dict["notifications"] = listOfNotif
+    return JsonResponse(parent_dict)

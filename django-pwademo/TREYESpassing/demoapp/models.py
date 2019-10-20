@@ -6,4 +6,4 @@ class Notification(models.Model):
     image = models.TextField()
 
     def __str__(self):
-        return self.notifheader + ' ' + str(self.date) + ' ' + str(self.image)
+        return self.notifheader + '#' + str(self.date) + '#' + str(self.image)
