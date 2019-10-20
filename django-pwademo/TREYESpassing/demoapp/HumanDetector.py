@@ -91,7 +91,10 @@ class HumanDetector:
                             curr_datetime = datetime.now()
                             filename = curr_datetime.strftime("%d%m%Y_%H%M%S%f")
                             base_dir = os.path.dirname(__file__)
-                            photo_file_name = base_dir + '\\static\\img\\' + str(filename) + '.png'
+                            photo_file_name = base_dir + '/static/img/' + str(filename) + '.png'
+                            
+                            photo_file_name = photo_file_name.replace("\\", "/")
+                            
                             print(photo_file_name)
                             print(cv.imwrite(photo_file_name, img_human))
                             notification = Notification.objects.create(notifheader='Person(s) detected!', date=curr_datetime, image=photo_file_name)
