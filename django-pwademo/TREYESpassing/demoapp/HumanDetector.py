@@ -71,7 +71,7 @@ class HumanDetector:
             for c in cnts:
                 x,y,w,h = cv.boundingRect(c)
 
-                if w>25 and h>25:
+                if w>28 and h>28:
                     roi_img=orig_image[y:y+h,x:x+w]
 
                     resized_roi = cv.resize(roi_img,
