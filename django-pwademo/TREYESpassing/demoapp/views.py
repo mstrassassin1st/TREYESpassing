@@ -5,8 +5,6 @@ from .models import Notification
 
 
 def processVideo(request):
-  print("da")
-  # signals.check_request_enabled.connect(True)
   if request.method == "GET":
       detected = videoProcesser.process()
       if detected:
