@@ -2,7 +2,7 @@
 TREYESpassing is an app that alerts it's user when someone entered an area that is 
 owned by the user and access to the area is prohibited for everyone.
 
-This is the frontend side (actually quite the backend side as well.
+This is the frontend side (actually quite the backend side as well).
 
 This app is developed using Django to handle the database and AI
 
